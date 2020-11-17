@@ -18,8 +18,8 @@ public class ResponseService {
     @Getter
     @AllArgsConstructor
     public enum CommonResponse {
-        SUCCESS(0, "성공하였습니다."),
-        FAIL(-1, "실패하였습니다.");
+        SUCCESS(0, "성공하였습니다.");
+//        FAIL(-1, "실패하였습니다.");
         int code;
         String msg;
     }
@@ -45,11 +45,11 @@ public class ResponseService {
     }
 
     //실패 결과만 처리하는 메소드
-    public CommonResult getFailResult() {
+    public CommonResult getFailResult(int code, String msg) {
         CommonResult result = new CommonResult();
         result.setSuccess(false);
-        result.setCode(CommonResponse.FAIL.getCode());
-        result.setMsg(CommonResponse.FAIL.getMsg());
+        result.setCode(code);
+        result.setMsg(msg);
         return result;
     }
 
